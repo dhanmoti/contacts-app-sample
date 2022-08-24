@@ -9,14 +9,12 @@ import UIKit
 
 class ContactListViewController: UITableViewController {
 
+    private var viewModel: ContactListViewModel = ContactListViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+       
     }
 
     // MARK: - Table view data source
@@ -26,14 +24,15 @@ class ContactListViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return viewModel.list.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contact-cell", for: indexPath)
 
-        (cell as? ContactCell)?.nameLabel.text = "abc \(indexPath.row)"
+        let text = viewModel.list[indexPath.row]
+        (cell as? ContactCell)?.nameLabel.text = text
 
         return cell
     }
