@@ -7,6 +7,30 @@
 
 import Foundation
 
+protocol ContactListViewModelDelegate {
+    func onListUpdate()
+}
+
 class ContactListViewModel {
-    var list:[String] = ["abc", "def", "ght"]
+    var apiClient: APIClient
+    var delegate: ContactListViewModelDelegate?
+    
+    init(_ apiClient: APIClient) {
+        self.apiClient = apiClient
+    }
+    
+    private(set) var list:[Contact] = [] {
+        didSet {
+            delegate?.onListUpdate()
+        }
+    }
+    
+    func fetch() {
+        apiClient.fetch { [weak self] result in
+            switch result {
+            case .success(let contacts): self?.list = contacts
+            case .failure(let error): print(error)
+            }
+        }
+    }
 }

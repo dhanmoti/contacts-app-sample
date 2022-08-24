@@ -17,6 +17,9 @@
 		D37C76E628B667AE002ED7B3 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37C76E428B667AE002ED7B3 /* ContactCell.swift */; };
 		D37C76E728B667AE002ED7B3 /* ContactListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37C76E528B667AE002ED7B3 /* ContactListViewController.swift */; };
 		D37C76F028B66A49002ED7B3 /* ContactListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37C76EF28B66A49002ED7B3 /* ContactListViewModel.swift */; };
+		D37C76FA28B66BD0002ED7B3 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37C76F928B66BD0002ED7B3 /* Contact.swift */; };
+		D37C770028B66BEE002ED7B3 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37C76FF28B66BEE002ED7B3 /* APIClient.swift */; };
+		D37C770B28B66E4A002ED7B3 /* APIClientImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37C770A28B66E4A002ED7B3 /* APIClientImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		D37C76E428B667AE002ED7B3 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		D37C76E528B667AE002ED7B3 /* ContactListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactListViewController.swift; sourceTree = "<group>"; };
 		D37C76EF28B66A49002ED7B3 /* ContactListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewModel.swift; sourceTree = "<group>"; };
+		D37C76F928B66BD0002ED7B3 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		D37C76FF28B66BEE002ED7B3 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		D37C770A28B66E4A002ED7B3 /* APIClientImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,8 @@
 		D31FBD1F28B26CB500222859 /* ContactsApp */ = {
 			isa = PBXGroup;
 			children = (
+				D37C76FE28B66BDA002ED7B3 /* APIClient */,
+				D37C76F828B66BA9002ED7B3 /* Models */,
 				D37C76EE28B66A03002ED7B3 /* ContactList */,
 				D31FBD2028B26CB500222859 /* AppDelegate.swift */,
 				D31FBD2228B26CB500222859 /* SceneDelegate.swift */,
@@ -140,6 +148,23 @@
 				D37C76EF28B66A49002ED7B3 /* ContactListViewModel.swift */,
 			);
 			path = ContactList;
+			sourceTree = "<group>";
+		};
+		D37C76F828B66BA9002ED7B3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D37C76F928B66BD0002ED7B3 /* Contact.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D37C76FE28B66BDA002ED7B3 /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				D37C76FF28B66BEE002ED7B3 /* APIClient.swift */,
+				D37C770A28B66E4A002ED7B3 /* APIClientImpl.swift */,
+			);
+			path = APIClient;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,9 +298,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D37C76F028B66A49002ED7B3 /* ContactListViewModel.swift in Sources */,
+				D37C770B28B66E4A002ED7B3 /* APIClientImpl.swift in Sources */,
+				D37C770028B66BEE002ED7B3 /* APIClient.swift in Sources */,
 				D37C76E628B667AE002ED7B3 /* ContactCell.swift in Sources */,
 				D37C76E728B667AE002ED7B3 /* ContactListViewController.swift in Sources */,
 				D31FBD2128B26CB500222859 /* AppDelegate.swift in Sources */,
+				D37C76FA28B66BD0002ED7B3 /* Contact.swift in Sources */,
 				D31FBD2328B26CB500222859 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
