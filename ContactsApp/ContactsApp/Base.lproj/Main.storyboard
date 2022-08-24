@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="contact-cell" rowHeight="99" id="S0x-rz-gIU">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="contact-cell" rowHeight="99" id="S0x-rz-gIU" customClass="ContactCell" customModule="ContactsApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="99"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S0x-rz-gIU" id="wRA-sv-6I8">
@@ -47,6 +47,10 @@
                                         <constraint firstAttribute="bottom" secondItem="u6S-ZJ-Bt1" secondAttribute="bottom" constant="16" id="qRu-8Y-9mj"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="oRS-AE-WRb" id="bDj-Er-4rA"/>
+                                    <outlet property="profileImage" destination="u6S-ZJ-Bt1" id="Hdc-e8-Hum"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

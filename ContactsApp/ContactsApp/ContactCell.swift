@@ -9,6 +9,9 @@ import UIKit
 
 class ContactCell: UITableViewCell {
 
+    @IBOutlet var profileImage: UIImageView!
+    @IBOutlet var nameLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

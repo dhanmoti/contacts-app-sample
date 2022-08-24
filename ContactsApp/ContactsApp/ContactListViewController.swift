@@ -33,7 +33,7 @@ class ContactListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contact-cell", for: indexPath)
 
-        // Configure the cell...
+        (cell as? ContactCell)?.nameLabel.text = "abc \(indexPath.row)"
 
         return cell
     }
