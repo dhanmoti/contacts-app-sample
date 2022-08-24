@@ -101,8 +101,7 @@
 		D31FBD1F28B26CB500222859 /* ContactsApp */ = {
 			isa = PBXGroup;
 			children = (
-				D37C76E428B667AE002ED7B3 /* ContactCell.swift */,
-				D37C76E528B667AE002ED7B3 /* ContactListViewController.swift */,
+				D37C76EE28B66A03002ED7B3 /* ContactList */,
 				D31FBD2028B26CB500222859 /* AppDelegate.swift */,
 				D31FBD2228B26CB500222859 /* SceneDelegate.swift */,
 				D31FBD2628B26CB500222859 /* Main.storyboard */,
@@ -129,6 +128,15 @@
 				D31FBD4428B26CC900222859 /* Info.plist */,
 			);
 			path = ContactsAppUITests;
+			sourceTree = "<group>";
+		};
+		D37C76EE28B66A03002ED7B3 /* ContactList */ = {
+			isa = PBXGroup;
+			children = (
+				D37C76E428B667AE002ED7B3 /* ContactCell.swift */,
+				D37C76E528B667AE002ED7B3 /* ContactListViewController.swift */,
+			);
+			path = ContactList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
