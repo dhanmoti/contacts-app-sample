@@ -12,8 +12,12 @@ enum FetchError: Error {
 }
 
 enum UpdateError: Error {
-    case missingId
     case failToEncode
+}
+
+enum RequestType: String {
+    case put = "PUT"
+    case post = "POST"
 }
 
 class APIClientImpl: APIClient {
@@ -48,11 +52,11 @@ class APIClientImpl: APIClient {
     
     
     func update(contact: Contact, completion: @escaping (Result<Bool, Error>) -> Void){
-        guard let contactId = contact.id else {
-            DispatchQueue.main.async {
-                completion(.failure(UpdateError.missingId))
-            }
-            return
+        var requestType: RequestType = .post
+        var contactId = ""
+        if let id = contact.id  {
+            requestType = .put
+            contactId = "\(id)"
         }
         guard let data = try? JSONEncoder().encode(contact) else {
             DispatchQueue.main.async {
@@ -62,9 +66,14 @@ class APIClientImpl: APIClient {
             return
         }
         
+        sendSaveContactRequest(contactId,requestType, data, completion)
+    }
+    
+    
+    fileprivate func sendSaveContactRequest(_ contactId: String,_ requestType: RequestType, _ data: Data, _ completion: @escaping (Result<Bool, Error>) -> Void) {
         let url = URL(string: "https://reqres.in/api/users/\(contactId)")!
         var request = URLRequest(url: url)
-        request.httpMethod = "PUT"
+        request.httpMethod = requestType.rawValue
         request.httpBody = data
         
         let task = session.dataTask(with: request) { (data, response, error) in
