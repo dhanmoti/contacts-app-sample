@@ -39,6 +39,10 @@ class ContactListViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "contact-detail-segue", sender: nil)
+    }
+
 
     
     /*
