@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,6 +26,7 @@
 		D387BD0228B86BEF00C4BF38 /* EditContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D387BD0128B86BEF00C4BF38 /* EditContactViewModel.swift */; };
 		D387BD1D28B89E9C00C4BF38 /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D387BD1C28B89E9C00C4BF38 /* AddContactViewController.swift */; };
 		D387BD2228B89ECA00C4BF38 /* AddContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D387BD2128B89ECA00C4BF38 /* AddContactViewModel.swift */; };
+		D387BD3128B8AF1700C4BF38 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = D387BD3028B8AF1700C4BF38 /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D387BD3128B8AF1700C4BF38 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +227,9 @@
 			dependencies = (
 			);
 			name = ContactsApp;
+			packageProductDependencies = (
+				D387BD3028B8AF1700C4BF38 /* SDWebImage */,
+			);
 			productName = ContactsApp;
 			productReference = D31FBD1D28B26CB500222859 /* ContactsApp.app */;
 			productType = "com.apple.product-type.application";
@@ -296,6 +301,9 @@
 				Base,
 			);
 			mainGroup = D31FBD1428B26CB500222859;
+			packageReferences = (
+				D387BD2F28B8AF1700C4BF38 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = D31FBD1E28B26CB500222859 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -685,6 +693,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D387BD2F28B8AF1700C4BF38 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.13.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D387BD3028B8AF1700C4BF38 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D387BD2F28B8AF1700C4BF38 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D31FBD1528B26CB500222859 /* Project object */;
 }
