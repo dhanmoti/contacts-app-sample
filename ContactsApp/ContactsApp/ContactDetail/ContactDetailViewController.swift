@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ContactDetailViewController: UITableViewController {
 
@@ -19,14 +20,23 @@ class ContactDetailViewController: UITableViewController {
         super.viewDidLoad()
 
         setDetails()
+        setupProfileView()
     }
 
     private func setDetails() {
         guard let vm = viewModel else { return }
         nameLabel.text = vm.fullName
         idLabel.text = vm.id
+        
+        if let urlStr = vm.profileImageURL, let url = URL(string: urlStr) {
+            profileImage.sd_setImage(with: url, completed: nil)
+        }
     }
 
+    private func setupProfileView() {
+        profileImage.layer.cornerRadius = 80
+        profileImage.layer.masksToBounds = true
+    }
     
     // MARK: - Navigation
 
