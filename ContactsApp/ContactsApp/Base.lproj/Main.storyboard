@@ -179,6 +179,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="wz5-an-vZU"/>
+                    <connections>
+                        <outlet property="idLabel" destination="tmH-jd-a3m" id="L1v-rR-gna"/>
+                        <outlet property="nameLabel" destination="NWW-aw-sjg" id="Xgg-oh-6ZC"/>
+                        <outlet property="profileImage" destination="exx-on-17O" id="xk0-5R-K2t"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ugn-TO-ppS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

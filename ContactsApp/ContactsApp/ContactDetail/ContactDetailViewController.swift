@@ -9,12 +9,23 @@ import UIKit
 
 class ContactDetailViewController: UITableViewController {
 
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var profileImage: UIImageView!
+    @IBOutlet var idLabel: UILabel!
+    
+    var viewModel: ContactDetailViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setDetails()
     }
 
-    
+    private func setDetails() {
+        guard let vm = viewModel else { return }
+        nameLabel.text = vm.fullName
+        idLabel.text = vm.id
+    }
 
     /*
     // MARK: - Navigation

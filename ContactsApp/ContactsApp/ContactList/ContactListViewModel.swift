@@ -19,7 +19,7 @@ class ContactListViewModel {
         self.apiClient = apiClient
     }
     
-    private(set) var list:[Contact] = [] {
+    private(set) var list:[ContactDetailViewModel] = [] {
         didSet {
             delegate?.onListUpdate()
         }
@@ -28,7 +28,7 @@ class ContactListViewModel {
     func fetch() {
         apiClient.fetch { [weak self] result in
             switch result {
-            case .success(let contacts): self?.list = contacts
+            case .success(let contacts): self?.list = contacts.map{ ContactDetailViewModel(contact: $0) }
             case .failure(let error): print(error)
             }
         }

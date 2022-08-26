@@ -34,7 +34,7 @@ class ContactListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "contact-cell", for: indexPath)
 
         let contact = viewModel.list[indexPath.row]
-        (cell as? ContactCell)?.nameLabel.text = "\(contact.firstName) \(contact.lastName)"
+        (cell as? ContactCell)?.nameLabel.text = contact.fullName
         
         return cell
     }
@@ -45,15 +45,22 @@ class ContactListViewController: UITableViewController {
 
 
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if let contactDetailVC = segue.destination as? ContactDetailViewController,
+            let selectedIdx = tableView.indexPathForSelectedRow?.row {
+            
+            let selectedContactDetail = viewModel.list[selectedIdx]
+            contactDetailVC.viewModel = selectedContactDetail
+            
+        }
     }
-    */
+    
 
 }
 
