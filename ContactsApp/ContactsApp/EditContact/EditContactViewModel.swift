@@ -20,6 +20,9 @@ class EditContactViewModel {
            return nil
         }
     }
+    var profileImageURL: String? {
+        contact.avatar
+    }
     
     var delegate: EditContactViewModelDelegate?
     
