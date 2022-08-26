@@ -12,8 +12,13 @@ protocol EditContactViewModelDelegate {
 class EditContactViewModel {
     var firstName: String
     var lastName: String
-    var id: String {
-        "\(contact.id ?? 0)"
+    var id: String? {
+        if let id = contact.id {
+           return "\(id)"
+        }
+        else {
+           return nil
+        }
     }
     
     var delegate: EditContactViewModelDelegate?

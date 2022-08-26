@@ -14,6 +14,8 @@ class EditContactViewController: UITableViewController {
     @IBOutlet var lastNameTextField: UITextField!
     @IBOutlet var idLabel: UILabel!
     
+    @IBOutlet var idCell: UITableViewCell!
+    
     var viewModel: EditContactViewModel?
     
     override func viewDidLoad() {
@@ -29,6 +31,8 @@ class EditContactViewController: UITableViewController {
         firstNameTextField.text = vm.firstName
         lastNameTextField.text = vm.lastName
         idLabel.text = vm.id
+        
+        idCell.isHidden = vm.id == nil
     }
     
 

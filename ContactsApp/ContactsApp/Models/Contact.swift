@@ -13,6 +13,18 @@ struct Contact {
     var lastName: String
     var email: String?
     var avatar: String?
+    
+    init(id: Int? = nil, firstName: String, lastName: String, email: String? = nil, avatar: String? = nil) {
+        self.id = id
+        self.firstName = firstName
+        self.lastName = lastName
+        self.email = email
+        self.avatar = avatar
+    }
+    
+    init() {
+        self.init(firstName: "", lastName: "")
+    }
 }
 
 extension Contact: Codable {

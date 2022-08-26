@@ -58,7 +58,13 @@
                             <outlet property="delegate" destination="Uk9-3n-Lhv" id="dUx-3t-zs6"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Contact" id="eVl-1f-Jg4"/>
+                    <navigationItem key="navigationItem" title="Contact" id="eVl-1f-Jg4">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="h4c-Kw-yFz">
+                            <connections>
+                                <segue destination="p8m-LC-GCc" kind="show" identifier="add-contact-segue" id="FR6-Cd-bUa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="Tu1-cC-xws" kind="show" identifier="contact-detail-segue" id="eCP-VR-6YL"/>
                     </connections>
@@ -353,6 +359,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="firstNameTextField" destination="JBf-ei-gFN" id="ilR-PI-bJw"/>
+                        <outlet property="idCell" destination="S3Q-dy-5o4" id="6dS-0B-Goe"/>
                         <outlet property="idLabel" destination="acq-jJ-j3W" id="VBz-cw-Cfa"/>
                         <outlet property="lastNameTextField" destination="ZWu-Rm-4YF" id="GPu-yV-2QZ"/>
                         <outlet property="profileImage" destination="tVM-go-RvL" id="kg0-JK-9Tn"/>
@@ -363,6 +370,9 @@
             <point key="canvasLocation" x="1398.5507246376812" y="790.84821428571422"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Urp-ux-2md"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
