@@ -11,6 +11,11 @@ enum FetchError: Error {
     case empty
 }
 
+enum UpdateError: Error {
+    case missingId
+    case failToEncode
+}
+
 class APIClientImpl: APIClient {
     let session = URLSession.shared
     
@@ -39,6 +44,44 @@ class APIClientImpl: APIClient {
         task.resume()
         
     
+    }
+    
+    
+    func update(contact: Contact, completion: @escaping (Result<Bool, Error>) -> Void){
+        guard let contactId = contact.id else {
+            DispatchQueue.main.async {
+                completion(.failure(UpdateError.missingId))
+            }
+            return
+        }
+        guard let data = try? JSONEncoder().encode(contact) else {
+            DispatchQueue.main.async {
+                completion(.failure(UpdateError.failToEncode))
+            }
+            
+            return
+        }
+        
+        let url = URL(string: "https://reqres.in/api/users/\(contactId)")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        request.httpBody = data
+        
+        let task = session.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+                
+                return
+            }
+            DispatchQueue.main.async {
+                completion(.success(true))
+            }
+            
+            print(response ?? "empty response")
+        }
+        task.resume()
     }
 }
 

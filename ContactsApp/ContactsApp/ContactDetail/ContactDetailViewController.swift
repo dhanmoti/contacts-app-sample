@@ -36,7 +36,8 @@ class ContactDetailViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         if let editVC = segue.destination as? EditContactViewController,
            let contact = viewModel?.contact {
-            editVC.viewModel = EditContactViewModel(contact)
+            let apiClient = APIClientImpl()
+            editVC.viewModel = EditContactViewModel(contact, apiClient)
         }
     }
     

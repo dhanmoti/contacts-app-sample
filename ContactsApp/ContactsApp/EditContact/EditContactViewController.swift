@@ -19,6 +19,7 @@ class EditContactViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        viewModel?.delegate = self
         setDetails()
     }
     
@@ -29,5 +30,19 @@ class EditContactViewController: UITableViewController {
         lastNameTextField.text = vm.lastName
         idLabel.text = vm.id
     }
+    
 
+    @IBAction func doneAction(_ sender: Any) {
+        guard let vm = viewModel else { return }
+        
+        vm.firstName = firstNameTextField.text ?? ""
+        vm.lastName = lastNameTextField.text ?? ""
+        vm.onDone()
+    }
+}
+
+extension EditContactViewController: EditContactViewModelDelegate {
+    func onSavedSuccessfully() {
+        self.navigationController?.popViewController(animated: true)
+    }
 }

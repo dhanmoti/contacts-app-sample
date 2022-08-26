@@ -6,6 +6,9 @@
 //
 
 import Foundation
+protocol EditContactViewModelDelegate {
+    func onSavedSuccessfully()
+}
 class EditContactViewModel {
     var firstName: String
     var lastName: String
@@ -13,12 +16,27 @@ class EditContactViewModel {
         "\(contact.id ?? 0)"
     }
     
-    private var contact: Contact
+    var delegate: EditContactViewModelDelegate?
     
-    init(_ contact: Contact) {
+    private var contact: Contact
+    private var apiClient: APIClient
+    init(_ contact: Contact, _ apiClient: APIClient) {
         self.contact = contact
         self.firstName = contact.firstName
         self.lastName = contact.lastName
+        
+        self.apiClient = apiClient
     }
     
+    func onDone() {
+        contact.firstName = firstName
+        contact.lastName = lastName
+        
+        apiClient.update(contact: contact) { result in
+            switch result {
+            case .success(_): self.delegate?.onSavedSuccessfully()
+            case .failure(let error): print(error)
+            }
+        }
+    }
 }

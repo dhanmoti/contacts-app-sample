@@ -345,7 +345,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Amn-Gp-5QV">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="bHz-ET-rL8"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="bHz-ET-rL8">
+                            <connections>
+                                <action selector="doneAction:" destination="p8m-LC-GCc" id="kbB-l9-aGK"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="firstNameTextField" destination="JBf-ei-gFN" id="ilR-PI-bJw"/>
