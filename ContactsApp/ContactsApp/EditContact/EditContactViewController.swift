@@ -23,6 +23,7 @@ class EditContactViewController: UITableViewController {
 
         viewModel?.delegate = self
         setDetails()
+        setupProfileView()
     }
     
     private func setDetails() {
@@ -33,9 +34,17 @@ class EditContactViewController: UITableViewController {
         idLabel.text = vm.id
         
         idCell.isHidden = vm.id == nil
+        
+        if let urlStr = vm.profileImageURL, let url = URL(string: urlStr) {
+            profileImage.sd_setImage(with: url, completed: nil)
+        }
     }
     
-
+    private func setupProfileView() {
+        profileImage.layer.cornerRadius = 80
+        profileImage.layer.masksToBounds = true
+    }
+    
     @IBAction func doneAction(_ sender: Any) {
         guard let vm = viewModel else { return }
         
