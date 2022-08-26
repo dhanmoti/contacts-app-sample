@@ -61,8 +61,8 @@ class ContactListViewController: UITableViewController {
         else if let addContactVC = segue.destination as? AddContactViewController {
             let contact = Contact()
             let apiClient = APIClientImpl()
-            let viewModel = AddContactViewModel(contact, apiClient)
-            addContactVC.viewModel = viewModel
+            let addContactViewModel = AddContactViewModel(contact, apiClient)
+            addContactVC.viewModel = addContactViewModel
         }
     }
     
